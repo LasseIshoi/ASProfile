@@ -52,5 +52,11 @@ example workflow can be found here:
 
 You can also embed plots, for example:
 
+``` html
+<logo>
+<img src="man/figures/logo.png" align="right" height="139" />
+</logo>
+```
+
 In that case, don’t forget to commit and push the resulting figure
 files, so they display on GitHub and CRAN.
