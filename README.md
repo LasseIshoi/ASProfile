@@ -33,7 +33,7 @@ library(InSituASProfile)
 What is special about using `README.Rmd` instead of just `README.md`?
 You can include R chunks like so:
 
-    ![alt text here]("man/figures/logo.png")
+    ![alt text here](man/figures/logo.png)
 
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`
 up-to-date. `devtools::build_readme()` is handy for this. You could also
