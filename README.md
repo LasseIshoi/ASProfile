@@ -48,6 +48,7 @@ regression line and associated preliminary plot (if not FALSE)
 InSituASProfile::prepare_data(data_import, print_plot = TRUE)
 
 ```
+![Rplot02](https://user-images.githubusercontent.com/98103290/153776863-77a42576-c98c-44f1-8ff5-5092a7d855b4.png)
 
 ## Calculate the AS Profile
 
