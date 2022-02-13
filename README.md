@@ -1,5 +1,5 @@
+![InSituASProfile](https://user-images.githubusercontent.com/98103290/153732197-a9744cff-857e-40d2-bfcc-05ecba893076.png)
 
-    <img align="right" width="100" height="100" src="http://www.fillmurray.com/100/100">
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
