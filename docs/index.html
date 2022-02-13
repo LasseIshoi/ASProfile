@@ -84,21 +84,25 @@
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(InSituASProfile)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data (csv files) from folder and combine in single data frame for analysis.  </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>InSituASProfile<span class="sc">::</span><span class="fu">import_data</span>(<span class="st">"C:/Users/lasse/OneDrive/skrivebord/gps_data"</span>, Velocity, Acceleration)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data. This step cleans the data frame by 1) omitting all acceleration</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>values below <span class="dv">0</span>, <span class="dv">2</span><span class="er">)</span> identify the two highest acceleration values <span class="cf">for</span> every </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>consecutive <span class="fl">0.2</span> m<span class="sc">/</span>s cut starting from <span class="dv">3</span> m<span class="sc">/</span>s, and <span class="dv">3</span><span class="er">)</span> create an initial regression</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>line and associated preliminary <span class="fu">plot</span> (<span class="cf">if</span> not <span class="cn">FALSE</span>) </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>InSituASProfile<span class="sc">::</span><span class="fu">prepare_data</span>(data_import, <span class="at">print_plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the A-S Profile. This step uses the data exported from prepare_data,</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>and to calculate the A<span class="sc">-</span>S Profile. It plots the A<span class="sc">-</span>S Profile as <span class="fu">default</span> (<span class="cn">TRUE</span>), </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> a plot showing the regression line is not printed by <span class="fu">default</span> (<span class="cn">FALSE</span>).</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>InSituASProfile<span class="sc">::</span><span class="fu">get_AS_Profile</span>(<span class="at">print_plot_regression_line =</span> <span class="cn">FALSE</span>, <span class="at">print_AS_plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">InSituASProfile</span><span class="op">)</span>
+
+<span class="co"># Import data (csv files) from folder and combine in single data frame for analysis.  </span>
+
+<span class="fu">InSituASProfile</span><span class="fu">::</span><span class="fu"><a href="reference/import_data.html">import_data</a></span><span class="op">(</span><span class="st">"C:/Users/lasse/OneDrive/skrivebord/gps_data"</span>, <span class="va">Velocity</span>, <span class="va">Acceleration</span><span class="op">)</span>
+
+<span class="co"># Prepare data. This step cleans the data frame by 1) omitting all acceleration</span>
+<span class="co"># values below 0, 2) identify the two highest acceleration values for every </span>
+<span class="co"># consecutive 0.2 m/s cut starting from 3 m/s, and 3) create an initial regression</span>
+<span class="co"># line and associated preliminary plot (if not FALSE) </span>
+
+<span class="fu">InSituASProfile</span><span class="fu">::</span><span class="fu"><a href="reference/prepare_data.html">prepare_data</a></span><span class="op">(</span><span class="va">data_import</span>, print_plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="co"># Calculate the A-S Profile. This step uses the data exported from prepare_data,</span>
+<span class="co"># and to calculate the A-S Profile. It plots the A-S Profile as default (TRUE), </span>
+<span class="co"># while a plot showing the regression line is not printed by default (FALSE).</span>
+
+<span class="fu">InSituASProfile</span><span class="fu">::</span><span class="fu"><a href="reference/get_AS_Profile.html">get_AS_Profile</a></span><span class="op">(</span>print_plot_regression_line <span class="op">=</span> <span class="cn">FALSE</span>, print_AS_plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 
