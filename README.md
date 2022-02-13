@@ -60,3 +60,4 @@ while a plot showing the regression line is not printed by default (FALSE).
 InSituASProfile::get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
 
 ```
+![Rplot](https://user-images.githubusercontent.com/98103290/153776728-18932f12-7c8e-4007-9def-ecccab2a6940.png)
