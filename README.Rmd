@@ -48,7 +48,7 @@ InSituASProfile::import_data("C:/Users/lasse/OneDrive/skrivebord/gps", Velocity,
 #values below 0, 2) identify the two highest acceleration values for every 
 #consecutive 0.2 m/s cut starting from 3 m/s, and 3) create an initial 
 #regression line and associated preliminary plot (if not FALSE) 
-InSituASProfile::prepare_data(data, print_plot = TRUE)
+InSituASProfile::prepare_data(data_import, print_plot = TRUE)
 
 # Calculate the A-S Profile. This step uses the data exported from prepare_data,
 #and to calculate the A-S Profile. It plots the A-S Profile as default (TRUE), 

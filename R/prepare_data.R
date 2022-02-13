@@ -12,7 +12,7 @@
 #' @import ggeasy
 #' @import ggpubr
 #' @export prepare_data
-#' @examples prepare_data(data)
+#' @examples prepare_data(sample_data)
 
 prepare_data <- function(x, print_plot = TRUE) {
 

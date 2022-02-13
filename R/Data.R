@@ -4,9 +4,9 @@
 #'
 #' @format a data.frame with 2 colunms
 #' \describe{
-#' \item{Speed}{Instantaneous sprint speed in m/s}
+#' \item{speed}{Instantaneous sprint speed in m/s}
 #' \item{acc}{instantaneous acceleration in m/s^2}
 #' }
-#' @source Data fro a soccer training session using Polar 10hz Team Pro gps
+#' @source Data from a soccer training session using Polar 10hz Catapult Vector 7
 #'
-"data"
+"sample_data"

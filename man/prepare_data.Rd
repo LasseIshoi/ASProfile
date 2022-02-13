@@ -19,5 +19,5 @@ This function prepares the input dataframe by: filtering acc >= 0, filtering spe
 The function outputs an initial linear regression analysis and associated scatterplot for initial data inspection.
 }
 \examples{
-prepare_data(data)
+prepare_data(sample_data)
 }
