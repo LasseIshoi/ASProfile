@@ -30,7 +30,7 @@ This is a basic example of how to use the InSituASProfile Package:
 Import data (csv files) from folder and combine in single data frame for analysis. 
 
 ``` import
-# library(InSituASProfile)
+library(InSituASProfile)
 
 InSituASProfile::import_data("C:/Users/lasse/OneDrive/skrivebord/gps_data", Velocity, Acceleration)
 
@@ -45,7 +45,7 @@ regression line and associated preliminary plot (if not FALSE)
 
 ```prepare
 
-# InSituASProfile::prepare_data(data_import, print_plot = TRUE)
+InSituASProfile::prepare_data(data_import, print_plot = TRUE)
 
 ```
 
@@ -57,6 +57,6 @@ while a plot showing the regression line is not printed by default (FALSE).
 
 ```ASProfile
 
-# InSituASProfile::get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
+InSituASProfile::get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
 
 ```
