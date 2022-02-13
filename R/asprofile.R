@@ -9,7 +9,6 @@
 #' @import ggeasy
 #' @import ggpubr
 #' @export get_AS_Profile
-#' @example get_AS_Profile()
 
 
 get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = TRUE) {
