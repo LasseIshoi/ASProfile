@@ -20,7 +20,7 @@ You can install the development version of InSituASProfile from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("LasseIshoi/InSituASProfile")
+devtools::install_github("LasseIshoi/ASProfile")
 ```
 
 ## Example
@@ -29,19 +29,13 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(InSituASProfile)
-## basic example code
-```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+# Import data (csv files) from folder and combine in single data frame for analysis.  
+InSituASProfile::import_data("C:/Users/lasse/OneDrive/skrivebord/gps/", Velocity, Acceleration)
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+# Prepare data. This step cleans the data frame by 1) omitting all acceleration values below 0, 2) identify the two highest acceleration values for every consecutive 0.2 m/s cut starting from 3 m/s, and 3) create an initial regression line and associated preliminary plot (if not FALSE) 
+InSituASProfile::prepare_data(data, print_plot = TRUE)
+
+# Calculate the A-S Profile. This step uses the data exported from prepare_data, and to calculate the A-S Profile. It plots the A-S Profile as default (TRUE), while a plot showing the regression line is not printed by default (FALSE).
+InSituASProfile::get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
 ```
