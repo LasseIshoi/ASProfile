@@ -76,7 +76,7 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
     geom_abline(intercept = a0, slope = slope, color = "blue", size = 2) +
     ggpubr::theme_pubr() +
     ggeasy::easy_remove_legend() +
-    ggplot2::ggtitle("In-situ Acceleraion speed profile") +
+    ggplot2::ggtitle("In-situ Acceleration Speed Profile") +
     ylim(0, y_lim) +
     xlim(0, x_limit) +
     ylab(bquote("Acceleration in m/s"^2)) +
