@@ -5,14 +5,14 @@
 \alias{sample_data}
 \title{data simulation data set}
 \format{
-a data.frame with 2 colunms
+a data.frame from a raw GPS file output, which contains two relevant columns, instantaneous speed and acceleration measures.
 \describe{
 \item{speed}{Instantaneous sprint speed in m/s}
 \item{acc}{instantaneous acceleration in m/s^2}
 }
 }
 \source{
-Data from a soccer training session using Polar 10hz Catapult Vector 7
+Data from a soccer training session using 10hz Catapult Vector 7
 }
 \usage{
 sample_data

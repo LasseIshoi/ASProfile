@@ -9,7 +9,7 @@ get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
 \arguments{
 \item{print_plot_regression_line}{A logical to print the AS profile with regression line, by default FALSE}
 
-\item{print_AS_plot}{A logical to print the AS profile, by default TRUE}
+\item{print_AS_plot}{A logical to print the AS profile as a publication ready plot, by default TRUE}
 }
 \description{
 Computes the sprint acceleration profile

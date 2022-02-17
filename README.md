@@ -20,7 +20,7 @@ You can install the development version of InSituASProfile from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("LasseIshoi/ASProfile")
+devtools::install_github("LasseIshoi/InSituASProfile")
 ```
 
 ## Example

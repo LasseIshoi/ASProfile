@@ -7,9 +7,9 @@
 prepare_data(x, print_plot = TRUE)
 }
 \arguments{
-\item{x}{a dataframe with two numeric columns named "speed" and "acc". speed values should be m/s.}
+\item{x}{a dataframe with two numeric columns named "speed" and "acc". speed values should be m/s. If import function has been used, the columns will automatically bw named "speed" and "acc"}
 
-\item{print_plot}{A logical to control if a preliminary plot is printed, by default TRUE}
+\item{print_plot}{A logical to control if a preliminary plot is printed, by default TRUE. This plot show the initial fit of the model and may serve to determine if the quality of the GPS data sufficient.}
 }
 \description{
 Prepares dataframe and provide a preliminary analysis
