@@ -3,7 +3,7 @@
 #' Computes the sprint acceleration profile
 #'
 #' @param print_plot_regression_line A logical to print the AS profile with regression line, by default FALSE
-#' @param print_AS_plot A logical to print the AS profile, by default TRUE
+#' @param print_AS_plot A logical to print the AS profile as a publication ready plot, by default TRUE
 #' @import dplyr
 #' @import ggplot2
 #' @import ggeasy

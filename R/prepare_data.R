@@ -5,8 +5,8 @@
 #' This function prepares the input dataframe by: filtering acc >= 0, filtering speed >= 3, creating speed bins by 0.2, and indentifying the highest two acc values in each speed bin.
 #' The function outputs an initial linear regression analysis and associated scatterplot for initial data inspection.
 #'
-#' @param x a dataframe with two numeric columns named "speed" and "acc". speed values should be m/s.
-#' @param print_plot A logical to control if a preliminary plot is printed, by default TRUE
+#' @param x a dataframe with two numeric columns named "speed" and "acc". speed values should be m/s. If import function has been used, the columns will automatically bw named "speed" and "acc"
+#' @param print_plot A logical to control if a preliminary plot is printed, by default TRUE. This plot show the initial fit of the model and may serve to determine if the quality of the GPS data sufficient.
 #' @import dplyr
 #' @import ggplot2
 #' @import ggeasy
