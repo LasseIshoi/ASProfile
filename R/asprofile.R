@@ -91,10 +91,11 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
 
   Maximal.Acceleration <- c(round(a0,2))
   Maximal.Velocity <- c(round(vmax,2))
+  R.Squared <- c(round(r.square,3))
+  Number.Observations <- c(count(as_insitu_clean))
 
-  Data_summary <- data.frame(Maximal.Acceleration, Maximal.Velocity)
+  Data_summary <- data.frame(Maximal.Acceleration, Maximal.Velocity, R.Squared, Number.Observations)
 
   .GlobalEnv$Data_summary  <- Data_summary
-
 
 }
