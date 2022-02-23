@@ -16,9 +16,11 @@
 
 prepare_data <- function(x, print_plot = TRUE) {
 
-  AS_data <- x %>% dplyr::filter(acc >= 0)
+  data_selected <- x %>% dplyr::select(speed, acc)
 
-  gps_data_filtered <- x %>% dplyr::filter(speed > 3)
+  AS_data <- data_selected %>% dplyr::filter(acc >= 0)
+
+  gps_data_filtered <- AS_data %>% dplyr::filter(speed > 3)
 
   gps_data_filtered$cuts <- cut(gps_data_filtered$speed,
                                 seq(3.00, max(gps_data_filtered$speed, na.rm = FALSE),
@@ -27,7 +29,7 @@ prepare_data <- function(x, print_plot = TRUE) {
   as_insitu_initial_lm <- gps_data_filtered %>%
     arrange(desc(acc)) %>%
     group_by(cuts) %>%
-    slice(1:2)
+    top_n(2, acc)
 
   as_insitu_initial_lm_df <- as.data.frame(as_insitu_initial_lm)
 

@@ -94,7 +94,8 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   R.Squared <- c(round(r.square,3))
   Number.Observations <- c(count(as_insitu_clean))
 
-  Data_summary <- data.frame(Maximal.Acceleration, Maximal.Velocity, R.Squared, Number.Observations)
+  Data_summary <- data.frame(Maximal.Acceleration, Maximal.Velocity, R.Squared, Number.Observations) %>%
+    rename(Number.Observations = n)
 
   .GlobalEnv$Data_summary  <- Data_summary
 
