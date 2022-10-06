@@ -26,7 +26,7 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   as_insitu_initial_lm_predicted <- cbind(as_insitu_initial_lm, predicted_values_df)
 
   as_insitu_clean <- as_insitu_initial_lm_predicted  %>%
-    dplyr::filter(acc <= upr)
+    dplyr::filter(acc <= upr & acc >= lwr)
 
   .GlobalEnv$as_insitu_clean <- as_insitu_clean
 
