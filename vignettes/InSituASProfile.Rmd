@@ -26,7 +26,9 @@ Import data (csv files) from folder and combine in single data frame for analysi
 
 ```{r import data}
 
-InSituASProfile::import_data("C:/Users/lasse/OneDrive/skrivebord/gps_data", Velocity, Acceleration)
+library(here)
+
+InSituASProfile::import_data(here("./data/"), "speed", "acc")
 
 ```
 

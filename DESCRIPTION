@@ -5,7 +5,7 @@ Authors@R:
   person("Lasse", "Ishoi", , "lasse.ishoei@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: The package calculates the insitu sprint acceleration-speed profile based on gps data.
-Imports: dplyr, ggplot2, ggeasy, ggpubr, readr
+Imports: dplyr, ggplot2, ggeasy, ggpubr, readr, here
 License: CC BY 4.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
