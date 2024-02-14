@@ -72,7 +72,7 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
 
   as_plot_publish <- ggplot() +
     geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.7) +
-    geom_abline(intercept = a0, slope = slope, color = "blue", size = 2) +
+    geom_abline(intercept = a0, slope = slope, color = "blue", size = 1) +
     geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 3) +
     ggpubr::theme_pubr() +
     ggeasy::easy_remove_legend() +
