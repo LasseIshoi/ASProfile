@@ -15,7 +15,7 @@ prepare_data(x, print_plot = TRUE)
 Prepares dataframe and provide a preliminary analysis
 }
 \details{
-This function prepares the input dataframe by: filtering acc >= 0, filtering speed >= 3, creating speed bins by 0.2, and indentifying the highest two acc values in each speed bin.
+This function prepares the input dataframe by: filtering acc >= 0, filtering speed >= 3, creating speed bins by 0.1 ms (suggested by Cormier et al. 2023), and indentifying the highest two acc values in each speed bin.
 The function outputs an initial linear regression analysis and associated scatterplot for initial data inspection.
 }
 \examples{

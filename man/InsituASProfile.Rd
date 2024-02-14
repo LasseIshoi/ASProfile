@@ -4,6 +4,7 @@
 \name{InsituASProfile}
 \alias{InSituASProfile}
 \alias{InSituASProfile-package}
+\alias{InsituASProfile}
 \title{InsituASProfile: A package for calculating the insitu sprint acceleration-speed profile based on gps data}
 \description{
 This package calculates the insitu sprint acceleration-speed profile based on gps data using the method described by Morin et al. 2021 published in Journal of Biomechanics, DOI: 10.1016/j.jbiomech.2021.110524

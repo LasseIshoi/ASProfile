@@ -12,5 +12,5 @@ get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
 \item{print_AS_plot}{A logical to print the AS profile as a publication ready plot, by default TRUE}
 }
 \description{
-Computes the sprint acceleration profile
+Computes the sprint acceleration profile using the Confidence Interval Filtering, e.g. removal of points outside of the 95 \% CI of the regression line from the initial fit.
 }

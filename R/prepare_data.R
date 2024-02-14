@@ -2,7 +2,7 @@
 #'
 #' Prepares dataframe and provide a preliminary analysis
 #'
-#' This function prepares the input dataframe by: filtering acc >= 0, filtering speed >= 3, creating speed bins by 0.2, and indentifying the highest two acc values in each speed bin.
+#' This function prepares the input dataframe by: filtering acc >= 0, filtering speed >= 3, creating speed bins by 0.1 ms (suggested by Cormier et al. 2023), and indentifying the highest two acc values in each speed bin.
 #' The function outputs an initial linear regression analysis and associated scatterplot for initial data inspection.
 #'
 #' @param x a dataframe with two numeric columns named "speed" and "acc". speed values should be m/s. If import function has been used, the columns will automatically bw named "speed" and "acc"
@@ -24,7 +24,7 @@ prepare_data <- function(x, print_plot = TRUE) {
 
   gps_data_filtered$cuts <- cut(gps_data_filtered$speed,
                                 seq(3.00, max(gps_data_filtered$speed, na.rm = FALSE),
-                                    by = 0.2))
+                                    by = 0.1))
 
   as_insitu_initial_lm <- gps_data_filtered %>%
     arrange(desc(acc)) %>%

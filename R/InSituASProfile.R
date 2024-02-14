@@ -9,4 +9,4 @@
 
 # use utils::globalVariables() to define global variables
 
-utils::globalVariables(c("AS_data", "as_insitu_initial_lm", "coef", "cuts", "lm", "predict.lm", "acc", "speed", "upr"))
+utils::globalVariables(c("AS_data", "as_insitu_initial_lm", "coef", "cuts", "lm", "predict.lm", "acc", "speed", "upr", "lwr"))

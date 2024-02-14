@@ -1,6 +1,6 @@
 #' Compute acceleration-speed profile
 #'
-#' Computes the sprint acceleration profile
+#' Computes the sprint acceleration profile using the Confidence Interval Filtering, e.g. removal of points outside of the 95 % CI of the regression line from the initial fit.
 #'
 #' @param print_plot_regression_line A logical to print the AS profile with regression line, by default FALSE
 #' @param print_AS_plot A logical to print the AS profile as a publication ready plot, by default TRUE
@@ -53,7 +53,7 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   if(print_plot_regression_line) {
 
   as_plot_regression <- ggplot() +
-    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.5) +
+    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.7) +
     geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 3) +
     geom_smooth(data = as_insitu_clean, aes(speed, acc), method="lm") +
     ggeasy::easy_remove_legend() +
@@ -71,9 +71,9 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   if(print_AS_plot){
 
   as_plot_publish <- ggplot() +
-    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.5) +
-    geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 3) +
+    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.7) +
     geom_abline(intercept = a0, slope = slope, color = "blue", size = 2) +
+    geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 3) +
     ggpubr::theme_pubr() +
     ggeasy::easy_remove_legend() +
     ggplot2::ggtitle("In-situ Acceleration Speed Profile") +
