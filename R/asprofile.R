@@ -4,6 +4,7 @@
 #'
 #' @param print_plot_regression_line A logical to print the AS profile with regression line, by default FALSE
 #' @param print_AS_plot A logical to print the AS profile as a publication ready plot, by default TRUE
+#' @param ci_outlier_detection A logical controlling whether to use 95 % confidence interval or Turkey Boxplot outlier detection. By default TRUE meaning ci will be applied
 #' @import dplyr
 #' @import ggplot2
 #' @import ggeasy
@@ -11,13 +12,22 @@
 #' @export get_AS_Profile
 
 
-get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = TRUE) {
+get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = TRUE, ci_outlier_detection = TRUE) {
+
+
+
+  as_insitu_initial_lm <- data_prepared %>%
+    arrange(desc(acc)) %>%
+    group_by(cuts) %>%
+    top_n(2, acc)
 
   lm_initial <- lm(acc ~ speed, as_insitu_initial_lm)
 
   summary_lm_initial <- summary(lm_initial)
 
   .GlobalEnv$summary_lm_initial <- summary_lm_initial
+
+  if(ci_outlier_detection == TRUE){
 
   predicted_values <- predict.lm(lm_initial, newdata = as_insitu_initial_lm, interval = "confidence", level = 0.95)
 
@@ -27,6 +37,28 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
 
   as_insitu_clean <- as_insitu_initial_lm_predicted  %>%
     dplyr::filter(acc <= upr & acc >= lwr)
+
+  } else {
+
+    as_insitu_clean  <- data_prepared %>%
+                            group_by(cuts) %>%
+                            dplyr::filter(acc >= quantile(acc, 0.98) | speed >= quantile(speed, 0.98)) %>%
+                            mutate(q1 = quantile(acc, 0.25),
+                                   q3 = quantile(acc, 0.75),
+                                   iqr = q3-q1,
+                                   lower_bound = q1 - (iqr * 1.5),
+                                   upper_bound = q3 + (iqr * 1.5)) %>%
+                            dplyr::filter(acc >= lower_bound & acc <= upper_bound) %>%
+                            mutate(acc = max(acc),
+                                   speed = max(speed)) %>%
+                            select(acc, speed) %>%
+                              ungroup()
+
+
+as_insitu_clean <- as_insitu_clean[!duplicated(as_insitu_clean$acc),]
+
+
+  }
 
   .GlobalEnv$as_insitu_clean <- as_insitu_clean
 
@@ -45,7 +77,7 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   .GlobalEnv$a0 <-  round(a0,2)
   .GlobalEnv$vmax <- round(vmax,2)
 
-  reduced_data <- AS_data[-sample(1:nrow(AS_data), (nrow(AS_data)*0.90)), ]
+  reduced_data <- AS_data[-sample(1:nrow(AS_data), (nrow(AS_data)*0.50)), ]
 
   x_limit <- vmax + 0.5
   y_lim <- a0 + 1
@@ -53,8 +85,8 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   if(print_plot_regression_line) {
 
   as_plot_regression <- ggplot() +
-    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.7) +
-    geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 3) +
+    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.3) +
+    geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 2) +
     geom_smooth(data = as_insitu_clean, aes(speed, acc), method="lm") +
     ggeasy::easy_remove_legend() +
     ggpubr::theme_pubr() +
@@ -71,9 +103,9 @@ get_AS_Profile <- function(print_plot_regression_line = FALSE, print_AS_plot = T
   if(print_AS_plot){
 
   as_plot_publish <- ggplot() +
-    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.7) +
+    geom_point(data = reduced_data, aes(speed, acc), color = "slategray4", alpha = 0.3, size = 0.3) +
     geom_abline(intercept = a0, slope = slope, color = "blue", size = 1) +
-    geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 3) +
+    geom_point(data = as_insitu_clean, aes(speed, acc), color = "red", size = 2) +
     ggpubr::theme_pubr() +
     ggeasy::easy_remove_legend() +
     ggplot2::ggtitle("In-situ Acceleration Speed Profile") +

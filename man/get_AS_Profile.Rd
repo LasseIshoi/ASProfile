@@ -4,12 +4,18 @@
 \alias{get_AS_Profile}
 \title{Compute acceleration-speed profile}
 \usage{
-get_AS_Profile(print_plot_regression_line = FALSE, print_AS_plot = TRUE)
+get_AS_Profile(
+  print_plot_regression_line = FALSE,
+  print_AS_plot = TRUE,
+  ci_outlier_detection = TRUE
+)
 }
 \arguments{
 \item{print_plot_regression_line}{A logical to print the AS profile with regression line, by default FALSE}
 
 \item{print_AS_plot}{A logical to print the AS profile as a publication ready plot, by default TRUE}
+
+\item{ci_outlier_detection}{A logical controlling whether to use 95 \% confidence interval or Turkey Boxplot outlier detection. By default TRUE meaning ci will be applied}
 }
 \description{
 Computes the sprint acceleration profile using the Confidence Interval Filtering, e.g. removal of points outside of the 95 \% CI of the regression line from the initial fit.

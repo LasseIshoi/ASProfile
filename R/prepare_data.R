@@ -26,6 +26,7 @@ prepare_data <- function(x, print_plot = TRUE) {
                                 seq(3.00, max(gps_data_filtered$speed, na.rm = FALSE),
                                     by = 0.1))
 
+
   as_insitu_initial_lm <- gps_data_filtered %>%
     arrange(desc(acc)) %>%
     group_by(cuts) %>%
@@ -35,9 +36,18 @@ prepare_data <- function(x, print_plot = TRUE) {
 
   .GlobalEnv$as_insitu_initial_lm <- as_insitu_initial_lm_df
 
+
   if(print_plot) {
 
   reduced_data_prepare <- AS_data[-sample(1:nrow(AS_data), (nrow(AS_data)*0.95)), ]
+
+
+  as_insitu_initial_lm <- gps_data_filtered %>%
+      arrange(desc(acc)) %>%
+      group_by(cuts) %>%
+      top_n(2, acc)
+
+  as_insitu_initial_lm_df <- as.data.frame(as_insitu_initial_lm)
 
   as_plot_initial <- ggplot() +
     geom_point(reduced_data_prepare, mapping = aes(speed, acc), alpha = 0.1, size = 0.5) +
@@ -57,6 +67,8 @@ prepare_data <- function(x, print_plot = TRUE) {
   }
 
   .GlobalEnv$AS_data <- AS_data
+
+  .GlobalEnv$data_prepared <- gps_data_filtered
 
 
 }
