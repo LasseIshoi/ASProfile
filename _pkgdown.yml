@@ -1,4 +1,4 @@
-url: ~
+url: https://lasseishoi.github.io/InSituASProfile/
 template:
   bootstrap: 5  # Ensure you're using Bootstrap 5 as your site suggests
   params:
