@@ -39,7 +39,7 @@ prepare_data <- function(x, print_plot = TRUE) {
 
   if(print_plot) {
 
-  reduced_data_prepare <- AS_data[-sample(1:nrow(AS_data), (nrow(AS_data)*0.95)), ]
+  reduced_data_prepare <- AS_data[-sample(1:nrow(AS_data), (nrow(AS_data)*0.50)), ]
 
 
   as_insitu_initial_lm <- gps_data_filtered %>%
