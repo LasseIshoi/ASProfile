@@ -2,7 +2,6 @@
 ---
 output: github_document
 ---
-![InSituASProfile](https://user-images.githubusercontent.com/98103290/153732173-2e78463b-565c-40ff-900a-cdcf8ee27795.png)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -21,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of InSituASProfile is to provide an easy way to calculate the insitu 
-sprint acceleration-speed profile based on gps data using the method described
+sprint acceleration-speed profile based on gps data from the concept described
 by Morin et al. 2021 published in Journal of Biomechanics, 
 DOI: 10.1016/j.jbiomech.2021.110524
 
