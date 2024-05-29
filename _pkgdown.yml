@@ -1,4 +1,8 @@
 url: ~
 template:
-  bootstrap: 5
+  bootstrap: 5  # Ensure you're using Bootstrap 5 as your site suggests
+  params:
+    bootswatch: flatly  # Choose a theme if needed
+
+destination: docs
 
